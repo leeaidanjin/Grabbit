@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		EA1A4CC72DA0DEDF00474FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA1A4CAE2DA0DEDE00474FF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA1A4CB52DA0DEDE00474FF5;
+			remoteInfo = Grabbit;
+		};
+		EA1A4CD12DA0DEE000474FF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA1A4CAE2DA0DEDE00474FF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA1A4CB52DA0DEDE00474FF5;
+			remoteInfo = Grabbit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA1A4CB62DA0DEDE00474FF5 /* Grabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1A4CC62DA0DEDF00474FF5 /* GrabbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrabbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA1A4CD02DA0DEE000474FF5 /* GrabbitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrabbitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EA1A4CB82DA0DEDE00474FF5 /* Grabbit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Grabbit;
+			sourceTree = "<group>";
+		};
+		EA1A4CC92DA0DEDF00474FF5 /* GrabbitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GrabbitTests;
+			sourceTree = "<group>";
+		};
+		EA1A4CD32DA0DEE000474FF5 /* GrabbitUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GrabbitUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA1A4CB32DA0DEDE00474FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CC32DA0DEDF00474FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CCD2DA0DEE000474FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA1A4CAD2DA0DEDE00474FF5 = {
+			isa = PBXGroup;
+			children = (
+				EA1A4CB82DA0DEDE00474FF5 /* Grabbit */,
+				EA1A4CC92DA0DEDF00474FF5 /* GrabbitTests */,
+				EA1A4CD32DA0DEE000474FF5 /* GrabbitUITests */,
+				EA1A4CB72DA0DEDE00474FF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA1A4CB72DA0DEDE00474FF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA1A4CB62DA0DEDE00474FF5 /* Grabbit.app */,
+				EA1A4CC62DA0DEDF00474FF5 /* GrabbitTests.xctest */,
+				EA1A4CD02DA0DEE000474FF5 /* GrabbitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA1A4CB52DA0DEDE00474FF5 /* Grabbit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA1A4CDA2DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "Grabbit" */;
+			buildPhases = (
+				EA1A4CB22DA0DEDE00474FF5 /* Sources */,
+				EA1A4CB32DA0DEDE00474FF5 /* Frameworks */,
+				EA1A4CB42DA0DEDE00474FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EA1A4CB82DA0DEDE00474FF5 /* Grabbit */,
+			);
+			name = Grabbit;
+			packageProductDependencies = (
+			);
+			productName = Grabbit;
+			productReference = EA1A4CB62DA0DEDE00474FF5 /* Grabbit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA1A4CC52DA0DEDF00474FF5 /* GrabbitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA1A4CDD2DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "GrabbitTests" */;
+			buildPhases = (
+				EA1A4CC22DA0DEDF00474FF5 /* Sources */,
+				EA1A4CC32DA0DEDF00474FF5 /* Frameworks */,
+				EA1A4CC42DA0DEDF00474FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA1A4CC82DA0DEDF00474FF5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EA1A4CC92DA0DEDF00474FF5 /* GrabbitTests */,
+			);
+			name = GrabbitTests;
+			packageProductDependencies = (
+			);
+			productName = GrabbitTests;
+			productReference = EA1A4CC62DA0DEDF00474FF5 /* GrabbitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EA1A4CCF2DA0DEE000474FF5 /* GrabbitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA1A4CE02DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "GrabbitUITests" */;
+			buildPhases = (
+				EA1A4CCC2DA0DEE000474FF5 /* Sources */,
+				EA1A4CCD2DA0DEE000474FF5 /* Frameworks */,
+				EA1A4CCE2DA0DEE000474FF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA1A4CD22DA0DEE000474FF5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EA1A4CD32DA0DEE000474FF5 /* GrabbitUITests */,
+			);
+			name = GrabbitUITests;
+			packageProductDependencies = (
+			);
+			productName = GrabbitUITests;
+			productReference = EA1A4CD02DA0DEE000474FF5 /* GrabbitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA1A4CAE2DA0DEDE00474FF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					EA1A4CB52DA0DEDE00474FF5 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					EA1A4CC52DA0DEDF00474FF5 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EA1A4CB52DA0DEDE00474FF5;
+					};
+					EA1A4CCF2DA0DEE000474FF5 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EA1A4CB52DA0DEDE00474FF5;
+					};
+				};
+			};
+			buildConfigurationList = EA1A4CB12DA0DEDE00474FF5 /* Build configuration list for PBXProject "Grabbit" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA1A4CAD2DA0DEDE00474FF5;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EA1A4CB72DA0DEDE00474FF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA1A4CB52DA0DEDE00474FF5 /* Grabbit */,
+				EA1A4CC52DA0DEDF00474FF5 /* GrabbitTests */,
+				EA1A4CCF2DA0DEE000474FF5 /* GrabbitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA1A4CB42DA0DEDE00474FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CC42DA0DEDF00474FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CCE2DA0DEE000474FF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA1A4CB22DA0DEDE00474FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CC22DA0DEDF00474FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA1A4CCC2DA0DEE000474FF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA1A4CC82DA0DEDF00474FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA1A4CB52DA0DEDE00474FF5 /* Grabbit */;
+			targetProxy = EA1A4CC72DA0DEDF00474FF5 /* PBXContainerItemProxy */;
+		};
+		EA1A4CD22DA0DEE000474FF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA1A4CB52DA0DEDE00474FF5 /* Grabbit */;
+			targetProxy = EA1A4CD12DA0DEE000474FF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EA1A4CD82DA0DEE000474FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA1A4CD92DA0DEE000474FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA1A4CDB2DA0DEE000474FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Grabbit/Preview Content\"";
+				DEVELOPMENT_TEAM = SJD5CHDR9N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Utilize the camera to scan barcodes";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.Grabbit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA1A4CDC2DA0DEE000474FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Grabbit/Preview Content\"";
+				DEVELOPMENT_TEAM = SJD5CHDR9N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Utilize the camera to scan barcodes";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.Grabbit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EA1A4CDE2DA0DEE000474FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.GrabbitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Grabbit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Grabbit";
+			};
+			name = Debug;
+		};
+		EA1A4CDF2DA0DEE000474FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.GrabbitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Grabbit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Grabbit";
+			};
+			name = Release;
+		};
+		EA1A4CE12DA0DEE000474FF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.GrabbitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Grabbit;
+			};
+			name = Debug;
+		};
+		EA1A4CE22DA0DEE000474FF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aidanlee.GrabbitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Grabbit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA1A4CB12DA0DEDE00474FF5 /* Build configuration list for PBXProject "Grabbit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA1A4CD82DA0DEE000474FF5 /* Debug */,
+				EA1A4CD92DA0DEE000474FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA1A4CDA2DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "Grabbit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA1A4CDB2DA0DEE000474FF5 /* Debug */,
+				EA1A4CDC2DA0DEE000474FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA1A4CDD2DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "GrabbitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA1A4CDE2DA0DEE000474FF5 /* Debug */,
+				EA1A4CDF2DA0DEE000474FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA1A4CE02DA0DEE000474FF5 /* Build configuration list for PBXNativeTarget "GrabbitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA1A4CE12DA0DEE000474FF5 /* Debug */,
+				EA1A4CE22DA0DEE000474FF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA1A4CAE2DA0DEDE00474FF5 /* Project object */;
+}
