@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product: Identifiable, Hashable {
+struct Product: Identifiable, Hashable, Codable {
     let id = UUID()
     let name: String
     let barcode: String
@@ -28,5 +28,10 @@ class CartModel: ObservableObject {
 
     func remove(_ product: Product) {
         items.removeAll { $0.id == product.id }
+    }
+    func clear () {
+        for PRODUCT in items {
+            remove(PRODUCT) 
+        }
     }
 }

@@ -1,20 +1,36 @@
-//
-//  Confirmation.swift
-//  FruitStore
-//
-//  Created by Mohammad Azam on 10/7/21.
-//
-
 import SwiftUI
 
 struct Confirmation: View {
-    var body: some View {
-        Text("Payment Completed!")
-    }
-}
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var cart: CartModel
+    @EnvironmentObject var storeModel: StoreModel
 
-struct Confirmation_Previews: PreviewProvider {
-    static var previews: some View {
-        Confirmation()
+    var body: some View {
+        VStack(spacing: 30) {
+            Text("🎉 Payment Completed!")
+                .font(.largeTitle)
+                .bold()
+
+            Text("Thank you for using Grabbit.")
+                .font(.title3)
+                .foregroundColor(.gray)
+
+            Button(action: {
+                cart.clear()              
+                storeModel.selectedStore = nil
+                dismiss()
+            }) {
+                Text("Return Home")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+            }
+        }
+        .padding()
+        .navigationBarBackButtonHidden(true)
     }
 }
