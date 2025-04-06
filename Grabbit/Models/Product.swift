@@ -16,22 +16,3 @@ struct Product: Identifiable, Hashable, Codable {
     let imageURL: String?
 }
 
-class CartModel: ObservableObject {
-    @Published var items: [Product] = []
-
-    var count: Int { items.count }
-    var total: Double { items.reduce(0) { $0 + $1.price } }
-
-    func add(_ product: Product) {
-        items.append(product)
-    }
-
-    func remove(_ product: Product) {
-        items.removeAll { $0.id == product.id }
-    }
-    func clear () {
-        for PRODUCT in items {
-            remove(PRODUCT) 
-        }
-    }
-}

@@ -30,6 +30,18 @@ struct GrabbitApp: App {
                     NavigationStack {
                         Confirmation()
                     }
+                case .cvs:
+                    NavigationStack {
+                        CVSStoreView()
+                    }
+                case .traderJoes:
+                    NavigationStack {
+                        TraderJoesStoreView()
+                    }
+                case .target:
+                    NavigationStack {
+                        TargetStoreView()
+                    }
                 }
             }
             .environmentObject(storeModel)

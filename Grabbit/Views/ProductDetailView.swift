@@ -28,7 +28,13 @@ struct ProductDetailView: View {
             HStack {
                 Button("Add to Cart") {
                     if let store = storeModel.selectedStore {
-                        cart.add(product)
+                        let item = CartItem(
+                            name: product.name,
+                            price: product.price,
+                            barcode: product.barcode,
+                            imageURL: product.imageURL
+                        )
+                        cart.add(item)
                     }
                     dismiss()
                 }
@@ -50,3 +56,4 @@ struct ProductDetailView: View {
         .navigationTitle("Item Details")
     }
 }
+

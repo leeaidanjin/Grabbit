@@ -12,18 +12,9 @@ struct CartView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let encodedItems = cart.items.map { item in
-            return [
-                "name": item.name,
-                "barcode": item.barcode,
-                "price": item.price,
-                "imageURL": item.imageURL ?? ""
-            ]
-        }
 
         let body = ["items": cart.items]
         request.httpBody = try? JSONEncoder().encode(body)
-
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil,
@@ -82,18 +73,16 @@ struct CartView: View {
                 }
             }
 
-            if cart.items.count > 0 {
+            if cart.count > 0 {
                 Button("Checkout") {
                     isLoading = true
                     startCheckout { clientSecret in
                         DispatchQueue.main.async {
                             isLoading = false
-
                             if let clientSecret = clientSecret {
                                 PaymentConfig.shared.paymentIntentClientSecret = clientSecret
-                                isActive = true 
+                                isActive = true
                             } else {
-      
                                 print("❌ Failed to fetch client secret")
                             }
                         }
@@ -117,6 +106,7 @@ struct CartView: View {
                 Text("Total: $\(cart.total, specifier: "%.2f")")
             }
         }
-        .navigationTitle("Cart")
+        .navigationTitle("\(cart.currentStore) Cart")
     }
 }
+

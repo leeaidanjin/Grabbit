@@ -7,6 +7,12 @@ struct StoreLocation: Identifiable, Equatable {
     let name: String
     let coordinate: CLLocationCoordinate2D
 
+    func distance(from location: CLLocationCoordinate2D) -> CLLocationDistance {
+        let storeLoc = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let userLoc = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        return storeLoc.distance(from: userLoc)
+    }
+
     static func == (lhs: StoreLocation, rhs: StoreLocation) -> Bool {
         lhs.id == rhs.id
     }
@@ -15,29 +21,32 @@ struct StoreLocation: Identifiable, Equatable {
 struct MapStoreView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var storeModel: StoreModel
+    @EnvironmentObject var cart: CartModel
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var locationManager = LocationManager()
 
+
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 32.87931538763469, longitude: -117.23726645218227),
+        center: CLLocationCoordinate2D(latitude: 32.8793, longitude: -117.2372),
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
 
     @State private var selectedStore: StoreLocation? = nil
-    @State private var showHome = false
     @State private var searchText = ""
     @FocusState private var isSearching: Bool
     @State private var hasCenteredOnUser = false
 
     let grabbitStores = [
-        StoreLocation(name: "Target", coordinate: CLLocationCoordinate2D(latitude: 32.87931538763469, longitude: -117.23726645218227)),
-        StoreLocation(name: "Target", coordinate: CLLocationCoordinate2D(latitude: 32.87931538763469, longitude: -117.23726645218227)),
-        StoreLocation(name: "Target", coordinate: CLLocationCoordinate2D(latitude: 32.87931538763469, longitude: -117.23726645218227))
+        StoreLocation(name: "Target", coordinate: CLLocationCoordinate2D(latitude: 32.8793, longitude: -117.2372)),
+        StoreLocation(name: "Trader Joe's", coordinate: CLLocationCoordinate2D(latitude: 32.8670, longitude: -117.2321)),
+        StoreLocation(name: "CVS", coordinate: CLLocationCoordinate2D(latitude: 32.8694, longitude: -117.2306))
     ]
 
-    var filteredStores: [StoreLocation] {
-        if searchText.isEmpty { return grabbitStores }
-        return grabbitStores.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+    var sortedStores: [StoreLocation] {
+        guard let userLoc = locationManager.userLocation else { return grabbitStores }
+        return grabbitStores
+            .sorted { $0.distance(from: userLoc) < $1.distance(from: userLoc) }
+            .filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
     }
 
     var body: some View {
@@ -54,7 +63,7 @@ struct MapStoreView: View {
                                     .font(.caption)
                             }
                             .onTapGesture {
-                                selectedStore = store
+                                handleStoreTap(store)
                             }
                         }
                     }
@@ -67,7 +76,6 @@ struct MapStoreView: View {
                         }
                     }
 
-    
                     Button(action: {
                         if let location = locationManager.userLocation {
                             region.center = location
@@ -83,9 +91,7 @@ struct MapStoreView: View {
                     }
                 }
 
-
                 VStack(spacing: 10) {
-  
                     HStack {
                         TextField("Search Stores", text: $searchText)
                             .padding(10)
@@ -106,7 +112,6 @@ struct MapStoreView: View {
                     }
                     .padding(.horizontal)
 
-          
                     if !isSearching {
                         HStack {
                             Text("Nearby")
@@ -118,28 +123,32 @@ struct MapStoreView: View {
                         .padding(.horizontal)
                     }
 
-
                     ScrollView {
                         VStack(spacing: 0) {
-                            VStack(spacing: 0) {
-                                ForEach(filteredStores) { store in
-                                    Button(action: {
-                                        selectedStore = store
-                                    }) {
-                                        VStack(alignment: .leading) {
-                                            Text(store.name)
-                                                .foregroundColor(colorScheme == .dark ? .white : .black)
-                                                .font(.headline)
-                                                .padding()
+                            ForEach(sortedStores) { store in
+                                Button(action: {
+                                    handleStoreTap(store)
+                                }) {
+                                    VStack(alignment: .leading) {
+                                        Text(store.name)
+                                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                                            .font(.headline)
+
+                                        if let userLoc = locationManager.userLocation {
+                                            let distance = store.distance(from: userLoc) / 1609.34
+                                            Text(String(format: "%.1f miles away", distance))
+                                                .font(.caption)
+                                                .foregroundColor(.gray)
                                         }
-                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     }
-                                    Divider().background(Color.gray)
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 }
+                                Divider().background(Color.gray)
                             }
-                            .background(colorScheme == .dark ? Color(red: 0.23, green: 0.23, blue: 0.25) : Color(.systemGray6))
-                            .cornerRadius(12)
                         }
+                        .background(colorScheme == .dark ? Color(red: 0.23, green: 0.23, blue: 0.25) : Color(.systemGray6))
+                        .cornerRadius(12)
                         .padding(.horizontal)
                     }
                     .padding(.bottom, 10)
@@ -149,20 +158,23 @@ struct MapStoreView: View {
                 .frame(height: UIScreen.main.bounds.height / 3)
                 .background(colorScheme == .dark ? Color(red: 0.13, green: 0.13, blue: 0.15) : Color(.systemBackground))
                 .cornerRadius(20)
-                .padding(.bottom, 0)
-            }
-            .onChange(of: selectedStore) { newStore in
-                if let store = newStore {
-                    storeModel.selectedStore = store.name
-                    DispatchQueue.main.async {
-                        viewRouter.currentScreen = .home(id: UUID())
-                        selectedStore = nil
-                    }
-                }
-            }
-            .navigationDestination(isPresented: $showHome) {
-                HomeView()
             }
         }
     }
+
+    private func handleStoreTap(_ store: StoreLocation) {
+        storeModel.selectedStore = store.name
+        cart.currentStore = store.name
+        switch store.name {
+        case "CVS":
+            viewRouter.currentScreen = .cvs
+        case "Trader Joe's":
+            viewRouter.currentScreen = .traderJoes
+        case "Target":
+            viewRouter.currentScreen = .target
+        default:
+            viewRouter.currentScreen = .home(id: UUID())
+        }
+    }
 }
+
