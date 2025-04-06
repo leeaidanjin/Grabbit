@@ -1,10 +1,3 @@
-//
-//  CartModel.swift
-//  Grabbit
-//
-//  Created by Yahir Salas on 4/6/25.
-//
-
 import Foundation
 
 struct CartItem: Identifiable, Codable, Hashable {
@@ -49,3 +42,4 @@ class CartModel: ObservableObject {
         carts[currentStore] = []
     }
 }
+

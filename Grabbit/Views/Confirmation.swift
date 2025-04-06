@@ -17,7 +17,7 @@ struct Confirmation: View {
 
             Button(action: {
                 cart.clearCart()
-                viewRouter.currentScreen = .home(id: UUID())
+                viewRouter.currentScreen = .map
             }) {
                 Text("Return Home")
                     .font(.headline)
