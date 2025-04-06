@@ -1,10 +1,9 @@
 //
 //  PaymentGatewayController.swift
-//  FruitStore
+//  Grabbit
 //
-//  Created by Mohammad Azam on 10/7/21.
+//  Created by Aidan Lee on 4/5/25.
 //
-
 import Foundation
 import Stripe
 import UIKit

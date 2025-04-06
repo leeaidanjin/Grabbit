@@ -1,8 +1,8 @@
-//
-//  Utils.swift
-//  Grabbit
-//
-//  Created by Aidan Lee on 4/5/25.
-//
-
 import Foundation
+
+
+func formatPrice(_ price: Double) -> String? {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    return formatter.string(from: NSNumber(value: price))
+}
