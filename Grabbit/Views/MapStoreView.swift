@@ -15,6 +15,7 @@ struct StoreLocation: Identifiable, Equatable {
 struct MapStoreView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var storeModel: StoreModel
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var locationManager = LocationManager()
 
     @State private var region = MKCoordinateRegion(
@@ -66,7 +67,7 @@ struct MapStoreView: View {
                         }
                     }
 
-                    // 🧭 Recenter button
+    
                     Button(action: {
                         if let location = locationManager.userLocation {
                             region.center = location
@@ -82,12 +83,13 @@ struct MapStoreView: View {
                     }
                 }
 
+
                 VStack(spacing: 10) {
-                    // Search bar
+  
                     HStack {
                         TextField("Search Stores", text: $searchText)
                             .padding(10)
-                            .background(Color(red: 0.23, green: 0.23, blue: 0.25))
+                            .background(colorScheme == .dark ? Color(red: 0.23, green: 0.23, blue: 0.25) : Color(.systemGray6))
                             .cornerRadius(10)
                             .focused($isSearching)
 
@@ -104,7 +106,7 @@ struct MapStoreView: View {
                     }
                     .padding(.horizontal)
 
-                    // Nearby label
+          
                     if !isSearching {
                         HStack {
                             Text("Nearby")
@@ -116,7 +118,7 @@ struct MapStoreView: View {
                         .padding(.horizontal)
                     }
 
-                    // Store list
+
                     ScrollView {
                         VStack(spacing: 0) {
                             VStack(spacing: 0) {
@@ -126,7 +128,7 @@ struct MapStoreView: View {
                                     }) {
                                         VStack(alignment: .leading) {
                                             Text(store.name)
-                                                .foregroundColor(.white)
+                                                .foregroundColor(colorScheme == .dark ? .white : .black)
                                                 .font(.headline)
                                                 .padding()
                                         }
@@ -135,7 +137,7 @@ struct MapStoreView: View {
                                     Divider().background(Color.gray)
                                 }
                             }
-                            .background(Color(red: 0.23, green: 0.23, blue: 0.25))
+                            .background(colorScheme == .dark ? Color(red: 0.23, green: 0.23, blue: 0.25) : Color(.systemGray6))
                             .cornerRadius(12)
                         }
                         .padding(.horizontal)
@@ -145,7 +147,7 @@ struct MapStoreView: View {
                 .padding(.top)
                 .frame(maxWidth: .infinity)
                 .frame(height: UIScreen.main.bounds.height / 3)
-                .background(Color(red: 0.13, green: 0.13, blue: 0.15))
+                .background(colorScheme == .dark ? Color(red: 0.13, green: 0.13, blue: 0.15) : Color(.systemBackground))
                 .cornerRadius(20)
                 .padding(.bottom, 0)
             }
@@ -153,7 +155,7 @@ struct MapStoreView: View {
                 if let store = newStore {
                     storeModel.selectedStore = store.name
                     DispatchQueue.main.async {
-                        viewRouter.currentScreen = .home(id: UUID()) // ✅ switch with router
+                        viewRouter.currentScreen = .home(id: UUID())
                         selectedStore = nil
                     }
                 }
@@ -164,4 +166,3 @@ struct MapStoreView: View {
         }
     }
 }
-

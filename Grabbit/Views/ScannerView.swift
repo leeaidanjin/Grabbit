@@ -111,7 +111,7 @@ struct ScannerView: View {
                                 isShowingCart = true
                             }) {
                                 ZStack {
-                                    // Outer ZStack for the green circle & basket icon
+                       
                                     ZStack {
                                         Circle()
                                             .fill(Color.green)
@@ -122,7 +122,7 @@ struct ScannerView: View {
                                             .font(.system(size: 24))
                                     }
 
-                                    // Overlay the badge in top-right corner
+    
                                     if cart.count > 0 {
                                         Text("\(cart.count)")
                                             .font(.caption2)
@@ -130,7 +130,7 @@ struct ScannerView: View {
                                             .background(Color.red)
                                             .foregroundColor(.white)
                                             .clipShape(Circle())
-                                            .offset(x: 20, y: -20) // Fine-tune position
+                                            .offset(x: 20, y: -20)
                                     }
                                 }
                             }

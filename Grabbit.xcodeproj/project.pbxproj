@@ -45,7 +45,6 @@
 		2F547FF32DA23357001F0D24 /* Exceptions for "Grabbit" folder in "Grabbit" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets.xcassets,
 				"Preview Content/Preview Assets.xcassets",
 			);
 			target = EA1A4CB52DA0DEDE00474FF5 /* Grabbit */;
