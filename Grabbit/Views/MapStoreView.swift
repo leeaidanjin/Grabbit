@@ -13,6 +13,7 @@ struct StoreLocation: Identifiable, Equatable {
 }
 
 struct MapStoreView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var storeModel: StoreModel
     @StateObject private var locationManager = LocationManager()
 
@@ -152,9 +153,9 @@ struct MapStoreView: View {
                 if let store = newStore {
                     storeModel.selectedStore = store.name
                     DispatchQueue.main.async {
-                                showHome = true
-                                selectedStore = nil
-                            }
+                        viewRouter.currentScreen = .home(id: UUID()) // ✅ switch with router
+                        selectedStore = nil
+                    }
                 }
             }
             .navigationDestination(isPresented: $showHome) {

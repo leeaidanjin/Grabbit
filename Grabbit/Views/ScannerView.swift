@@ -6,10 +6,49 @@ struct ScannerView: View {
     @State private var selectedProduct: Product? = nil
     @State private var isLoading = false
     @State private var zoomFactor: CGFloat = 1.0
+    @EnvironmentObject var cart: CartModel
+    @State private var showBasketAnimation = false
+    @State private var animateShake = false
+    @State private var isShowingCart = false
+
 
     var body: some View {
         
         ZStack {
+            if showBasketAnimation {
+                Image(systemName: "basket.fill")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .foregroundColor(.green)
+                    .scaleEffect(showBasketAnimation ? 1.2 : 0.1)
+                    .rotationEffect(.degrees(animateShake ? -15 : 0))
+                    .offset(y: -150)
+                    .transition(.scale.combined(with: .opacity))
+                    .animation(.easeInOut(duration: 0.3), value: showBasketAnimation)
+                    .animation(.default.repeatCount(3, autoreverses: true), value: animateShake)
+            }
+
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isShowingCart = true
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.green)
+                                .frame(width: 60, height: 60)
+
+                            Image(systemName: "basket")
+                                .foregroundColor(.white)
+                                .font(.system(size: 24))
+                        }
+                    }
+                    .padding()
+                }
+            }
+
             CameraCaptureView(imageHandler: handleCapturedImage, zoomFactor: zoomFactor)
                 .edgesIgnoringSafeArea(.all)
 
@@ -60,12 +99,61 @@ struct ScannerView: View {
                         .font(.title2)
                 }
             }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                isShowingCart = true
+                            }) {
+                                ZStack {
+                                    // Outer ZStack for the green circle & basket icon
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color.green)
+                                            .frame(width: 60, height: 60)
+
+                                        Image(systemName: "basket")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 24))
+                                    }
+
+                                    // Overlay the badge in top-right corner
+                                    if cart.count > 0 {
+                                        Text("\(cart.count)")
+                                            .font(.caption2)
+                                            .padding(6)
+                                            .background(Color.red)
+                                            .foregroundColor(.white)
+                                            .clipShape(Circle())
+                                            .offset(x: 20, y: -20) // Fine-tune position
+                                    }
+                                }
+                            }
+                            .padding()
+
+                        }
+                    }
+
+                    .padding()
+                }
+            }
         }
         .navigationTitle("Scan Item")
         .sheet(item: $selectedProduct) { product in
             ProductDetailView(product: product)
         }
+        .navigationDestination(isPresented: $isShowingCart) {
+            CartView()
+        }
+
     }
+    
+    
 
     func handleCapturedImage(_ image: UIImage) {
         print("🔍 Running Vision on image")
@@ -92,6 +180,18 @@ struct ScannerView: View {
                         isLoading = false
                         if let fetchedProduct = fetchedProduct {
                             self.selectedProduct = fetchedProduct
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                                showBasketAnimation = true
+                                animateShake = true
+                            }
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                withAnimation {
+                                    showBasketAnimation = false
+                                    animateShake = false
+                                }
+                            }
+
                         }
                     }
                 }
@@ -102,6 +202,7 @@ struct ScannerView: View {
         }
     }
 }
+
 
 extension Notification.Name {
     static let triggerPhotoCapture = Notification.Name("triggerPhotoCapture")
@@ -116,3 +217,4 @@ extension UIImage {
         }
     }
 }
+

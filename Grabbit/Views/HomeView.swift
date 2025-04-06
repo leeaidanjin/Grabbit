@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var cart: CartModel
     @State private var isShowingCart = false
+    @EnvironmentObject var viewRouter: ViewRouter // ✅ Add this
 
     var body: some View {
         VStack(spacing: 20) {
@@ -17,6 +18,19 @@ struct HomeView: View {
         }
         .navigationTitle("Grabbit")
         .toolbar {
+            // ✅ Custom back button on the left
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    viewRouter.currentScreen = .map
+                }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                        Text("Stores")
+                    }
+                }
+            }
+
+            // 🛒 Cart button on the right (keep this as-is)
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
                     isShowingCart = true
@@ -38,8 +52,11 @@ struct HomeView: View {
                 }
             }
         }
+
         .navigationDestination(isPresented: $isShowingCart) {
             CartView()
         }
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
