@@ -71,9 +71,9 @@ class CartModel: ObservableObject {
             date: Date(),
             userId: Auth.auth().currentUser?.uid ?? "unknown"
         )
-
         receipts.insert(receipt, at: 0)
-        FirebaseService.shared.saveReceipt(receipt) // Save to Firestore
+        FirebaseService.shared.saveReceipt(receipt) 
+        receipts.insert(receipt, at: 0)
         clearCart()
     }
 }

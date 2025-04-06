@@ -41,6 +41,7 @@ struct CheckoutView: View {
                 case .succeeded:
                     message = "Payment successful!"
                     isSuccess = true
+                    cart.completeCheckout()
                 @unknown default:
                     message = "Unknown status"
                 }

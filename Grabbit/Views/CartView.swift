@@ -81,7 +81,6 @@ struct CartView: View {
                             isLoading = false
                             if let clientSecret = clientSecret {
                                 PaymentConfig.shared.paymentIntentClientSecret = clientSecret
-                                cart.completeCheckout() // Save receipt here ✅
                                 isActive = true
                             } else {
                                 print("❌ Failed to fetch client secret")

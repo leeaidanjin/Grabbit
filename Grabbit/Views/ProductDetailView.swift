@@ -32,7 +32,7 @@ struct ProductDetailView: View {
                             name: product.name,
                             price: product.price,
                             barcode: product.barcode,
-                            imageURL: product.imageURL,
+                            imageURL: product.imageURL
                         )
                         cart.add(item)
                     }

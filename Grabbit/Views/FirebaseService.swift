@@ -13,7 +13,6 @@ class FirebaseService {
     static let shared = FirebaseService()
     private let db = Firestore.firestore()
 
-    // Save receipt to Firestore
     func saveReceipt(_ receipt: Receipt) {
         guard let user = Auth.auth().currentUser else { return }
 
@@ -29,7 +28,7 @@ class FirebaseService {
         }
     }
 
-    // Fetch receipts for a user
+
     func fetchReceipts(for userId: String, completion: @escaping ([Receipt]) -> Void) {
         db.collection("users")
             .document(userId)
