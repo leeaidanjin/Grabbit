@@ -1,10 +1,11 @@
 import SwiftUI
+import Auth0
 
 struct HomeView: View {
     @EnvironmentObject var cart: CartModel
     @State private var isShowingCart = false
     @EnvironmentObject var viewRouter: ViewRouter
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Welcome to Grabbit")
@@ -18,7 +19,6 @@ struct HomeView: View {
         }
         .navigationTitle("Grabbit")
         .toolbar {
-  
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     viewRouter.currentScreen = .map
@@ -30,8 +30,25 @@ struct HomeView: View {
                 }
             }
 
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    Auth0
+                        .webAuth()
+                        .clearSession { result in
+                            switch result {
+                            case .success:
+                                print("✅ Logged out")
+                                DispatchQueue.main.async {
+                                    viewRouter.currentScreen = .login
+                                }
+                            case .failure(let error):
+                                print("❌ Logout failed: \(error)")
+                            }
+                        }
+                }) {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                }
 
-            ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
                     isShowingCart = true
                 }) {
@@ -52,11 +69,10 @@ struct HomeView: View {
                 }
             }
         }
-
-        .navigationDestination(isPresented: $isShowingCart) {
+        .navigationDestination(isPresented: $isShowingCart, destination: {
             CartView()
-        }
+        })
         .navigationBarBackButtonHidden(true)
     }
-    
 }
+

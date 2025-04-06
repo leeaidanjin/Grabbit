@@ -7,41 +7,34 @@ struct GrabbitApp: App {
     @StateObject private var cart = CartModel()
     @StateObject private var viewRouter = ViewRouter()
 
-    @State private var showSplash = true
-
     init() {
-        StripeAPI.defaultPublishableKey = "pk_test_..."
+        StripeAPI.defaultPublishableKey = "pk_test_51RAeRmGaOx80ufGO5yG6icuEpmDI04wXCPbdhYWLCqraRa2RLypjH56KLs6UgH8WvHUHXTQdRVtIFAaNKpMMyDYL00IelWq896"
     }
 
     var body: some Scene {
         WindowGroup {
-            if showSplash {
-                SplashScreenView(isActive: $showSplash)
-            } else {
-                ZStack {
-                    switch viewRouter.currentScreen {
-                    case .home(let id):
-                        NavigationStack {
-                            HomeView()
-                        }
-                        .id(id)
-
-                    case .confirmation:
-                        NavigationStack {
-                            Confirmation()
-                        }
-
-                    case .map:
-                        NavigationStack {
-                            MapStoreView()
-                        }
+            ZStack {
+                switch viewRouter.currentScreen {
+                case .login:
+                    LoginView()
+                case .map:
+                    NavigationStack {
+                        MapStoreView()
+                    }
+                case .home(let id):
+                    NavigationStack {
+                        HomeView()
+                    }
+                    .id(id)
+                case .confirmation:
+                    NavigationStack {
+                        Confirmation()
                     }
                 }
-                .environmentObject(storeModel)
-                .environmentObject(cart)
-                .environmentObject(viewRouter)
             }
+            .environmentObject(storeModel)
+            .environmentObject(cart)
+            .environmentObject(viewRouter)
         }
     }
 }
-

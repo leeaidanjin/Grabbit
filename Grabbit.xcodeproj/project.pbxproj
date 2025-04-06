@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FB5CF902DA27D2700DF9D8D /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB5CF8F2DA27D2700DF9D8D /* Auth0 */; };
 		EA941FA92DA1E48C00681707 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = EA941FA82DA1E48C00681707 /* Stripe */; };
 		EA941FAB2DA1E48C00681707 /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = EA941FAA2DA1E48C00681707 /* StripeApplePay */; };
 		EA941FAD2DA1E48C00681707 /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = EA941FAC2DA1E48C00681707 /* StripeCardScan */; };
@@ -45,7 +46,6 @@
 		2F547FF32DA23357001F0D24 /* Exceptions for "Grabbit" folder in "Grabbit" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets.xcassets,
 				Info.plist,
 				"Preview Content/Preview Assets.xcassets",
 			);
@@ -82,6 +82,7 @@
 				EA941FB12DA1E48C00681707 /* StripeFinancialConnections in Frameworks */,
 				EA941FAD2DA1E48C00681707 /* StripeCardScan in Frameworks */,
 				EA941FA92DA1E48C00681707 /* Stripe in Frameworks */,
+				2FB5CF902DA27D2700DF9D8D /* Auth0 in Frameworks */,
 				EA941FB32DA1E48C00681707 /* StripeIdentity in Frameworks */,
 				EA941FB52DA1E48C00681707 /* StripePaymentSheet in Frameworks */,
 				EA941FAF2DA1E48C00681707 /* StripeConnect in Frameworks */,
@@ -108,12 +109,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FB5CF8E2DA27D2700DF9D8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA1A4CAD2DA0DEDE00474FF5 = {
 			isa = PBXGroup;
 			children = (
 				EA1A4CB82DA0DEDE00474FF5 /* Grabbit */,
 				EA1A4CC92DA0DEDF00474FF5 /* GrabbitTests */,
 				EA1A4CD32DA0DEE000474FF5 /* GrabbitUITests */,
+				2FB5CF8E2DA27D2700DF9D8D /* Frameworks */,
 				EA1A4CB72DA0DEDE00474FF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 				EA941FB42DA1E48C00681707 /* StripePaymentSheet */,
 				EA941FB62DA1E48C00681707 /* StripePayments */,
 				EA941FB82DA1E48C00681707 /* StripePaymentsUI */,
+				2FB5CF8F2DA27D2700DF9D8D /* Auth0 */,
 			);
 			productName = Grabbit;
 			productReference = EA1A4CB62DA0DEDE00474FF5 /* Grabbit.app */;
@@ -242,6 +252,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EA941FA72DA1E48C00681707 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+				2FB5CF8D2DA27D0300DF9D8D /* XCRemoteSwiftPackageReference "Auth0" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EA1A4CB72DA0DEDE00474FF5 /* Products */;
@@ -622,6 +633,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2FB5CF8D2DA27D0300DF9D8D /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
 		EA941FA72DA1E48C00681707 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stripe/stripe-ios";
@@ -633,6 +652,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2FB5CF8F2DA27D2700DF9D8D /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FB5CF8D2DA27D0300DF9D8D /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
 		EA941FA82DA1E48C00681707 /* Stripe */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EA941FA72DA1E48C00681707 /* XCRemoteSwiftPackageReference "stripe-ios" */;

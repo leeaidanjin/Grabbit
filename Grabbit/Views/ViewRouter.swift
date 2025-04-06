@@ -8,9 +8,10 @@
 import Foundation
 
 class ViewRouter: ObservableObject {
-    @Published var currentScreen: Screen = .map
+    @Published var currentScreen: Screen = .login // Start on login screen
 
     enum Screen: Equatable {
+        case login
         case map
         case home(id: UUID = UUID())
         case confirmation
