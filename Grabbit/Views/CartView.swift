@@ -17,7 +17,7 @@ struct CartView: View {
         request.httpBody = try? JSONEncoder().encode(body)
 
         URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil,
+            guard let data = data, error == nil,
                   (response as? HTTPURLResponse)?.statusCode == 200 else {
                 completion(nil)
                 return
@@ -81,6 +81,7 @@ struct CartView: View {
                             isLoading = false
                             if let clientSecret = clientSecret {
                                 PaymentConfig.shared.paymentIntentClientSecret = clientSecret
+                                cart.completeCheckout() // Save receipt here ✅
                                 isActive = true
                             } else {
                                 print("❌ Failed to fetch client secret")
@@ -109,3 +110,4 @@ struct CartView: View {
         .navigationTitle("\(cart.currentStore) Cart")
     }
 }
+

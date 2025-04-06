@@ -96,7 +96,13 @@ struct TargetStoreView: View {
                 .padding(.bottom, 90)
             }
 
-            VStack {
+            VStack(spacing: 12) {
+                NavigationLink("My Receipts", destination: ReceiptsView())
+                    .padding()
+                    .background(Color.orange)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+
                 NavigationLink("Scan Item", destination: ScannerView())
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -104,8 +110,8 @@ struct TargetStoreView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding(.horizontal)
-                    .padding(.bottom)
             }
+            .padding(.bottom)
             .background(Color(UIColor.systemBackground))
         }
         .navigationTitle("Target")
