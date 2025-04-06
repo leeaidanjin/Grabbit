@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct Confirmation: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var cart: CartModel
     @EnvironmentObject var storeModel: StoreModel
+    @EnvironmentObject var viewRouter: ViewRouter
 
     var body: some View {
         VStack(spacing: 30) {
@@ -16,9 +16,8 @@ struct Confirmation: View {
                 .foregroundColor(.gray)
 
             Button(action: {
-                cart.clear()              
-                storeModel.selectedStore = nil
-                dismiss()
+                cart.clear()
+                viewRouter.currentScreen = .home(id: UUID()) // ✅ Go to new HomeView
             }) {
                 Text("Return Home")
                     .font(.headline)
@@ -34,3 +33,4 @@ struct Confirmation: View {
         .navigationBarBackButtonHidden(true)
     }
 }
+
