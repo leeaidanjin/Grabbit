@@ -21,7 +21,9 @@ struct CartView: View {
             ]
         }
 
-        request.httpBody = try? JSONSerialization.data(withJSONObject: encodedItems)
+        let body = ["items": cart.items]
+        request.httpBody = try? JSONEncoder().encode(body)
+
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil,
@@ -91,7 +93,7 @@ struct CartView: View {
                                 PaymentConfig.shared.paymentIntentClientSecret = clientSecret
                                 isActive = true 
                             } else {
-                                // Optional: show error message to user
+      
                                 print("❌ Failed to fetch client secret")
                             }
                         }
