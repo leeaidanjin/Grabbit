@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseAuth
 
 struct CartItem: Identifiable, Codable, Hashable {
     let id = UUID()
@@ -9,11 +10,12 @@ struct CartItem: Identifiable, Codable, Hashable {
 }
 
 struct Receipt: Identifiable, Codable {
-    let id = UUID()
+    let id: String
     let storeName: String
     let items: [CartItem]
     let total: Double
     let date: Date
+    let userId: String
 }
 
 extension Date {
@@ -62,12 +64,16 @@ class CartModel: ObservableObject {
 
     func completeCheckout() {
         let receipt = Receipt(
+            id: UUID().uuidString,
             storeName: currentStore,
             items: items,
             total: total,
-            date: Date()
+            date: Date(),
+            userId: Auth.auth().currentUser?.uid ?? "unknown"
         )
-        receipts.insert(receipt, at: 0) // Most recent at top
+
+        receipts.insert(receipt, at: 0)
+        FirebaseService.shared.saveReceipt(receipt) // Save to Firestore
         clearCart()
     }
 }

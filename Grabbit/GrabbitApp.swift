@@ -1,5 +1,6 @@
 import SwiftUI
 import Stripe
+import Firebase
 
 @main
 struct GrabbitApp: App {
@@ -8,6 +9,7 @@ struct GrabbitApp: App {
     @StateObject private var viewRouter = ViewRouter()
 
     init() {
+        FirebaseApp.configure()
         StripeAPI.defaultPublishableKey = "pk_test_51RAeRmGaOx80ufGO5yG6icuEpmDI04wXCPbdhYWLCqraRa2RLypjH56KLs6UgH8WvHUHXTQdRVtIFAaNKpMMyDYL00IelWq896"
     }
 
@@ -50,3 +52,4 @@ struct GrabbitApp: App {
         }
     }
 }
+

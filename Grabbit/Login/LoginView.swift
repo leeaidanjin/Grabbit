@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import Auth0
+import FirebaseAuth
 
 struct LoginView: View {
     @EnvironmentObject var viewRouter: ViewRouter
@@ -22,9 +23,18 @@ struct LoginView: View {
                         switch result {
                         case .success(let credentials):
                             print("✅ Logged in: \(credentials)")
-                            DispatchQueue.main.async {
-                                viewRouter.currentScreen = .map
+
+                            Auth.auth().signInAnonymously { authResult, error in
+                                if let error = error {
+                                    print("❌ Firebase sign-in failed: \(error)")
+                                    return
+                                }
+                                print("✅ Firebase user ID: \(authResult?.user.uid ?? "unknown")")
+                                DispatchQueue.main.async {
+                                    viewRouter.currentScreen = .map
+                                }
                             }
+
                         case .failure(let error):
                             print("❌ Login failed: \(error)")
                         }
@@ -38,3 +48,4 @@ struct LoginView: View {
         .padding()
     }
 }
+
