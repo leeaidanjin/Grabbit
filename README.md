@@ -17,9 +17,9 @@ Grabbit is a mobile app that turns any iPhone into a self-checkout system for qu
 
 ---
 
-##Getting Started
+## Getting Started
 
-###Requirements
+### Requirements
 
 - Xcode 15+
 - iOS 17+
